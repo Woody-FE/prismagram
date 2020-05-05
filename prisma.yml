@@ -1,4 +1,4 @@
-endpoint: ${env:PRISMA_ENDPOINT}
+endpoint: https://eu1.prisma.sh/taein-kim-d911ca/prismagram/dev
 datamodel: datamodel.prisma
 
 generate:
