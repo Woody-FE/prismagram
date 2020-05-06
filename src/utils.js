@@ -1,11 +1,11 @@
-import dotenv from 'dotenv';
-import path from 'path';
-dotenv.config({ path: path.resolve(__dirname, ".env") });
+import './env';
 
 // https://sendgrid.com/blog/sending-email-nodemailer-sendgrid/
 import { adjectives, nouns } from "./words";
 import nodemailer from 'nodemailer';
 import sgTransport from 'nodemailer-sendgrid-transport';
+// jwt 토큰생성
+import jwt from 'jsonwebtoken';
 
 // 랜덤한 단어 생성
 export const secretGenerator = () => {
@@ -36,3 +36,5 @@ export const sendSecretMail = (address, secret) => {
     };
     return sendMail(email);
 };
+
+export const generateToken = id => jwt.sign({ id }, process.env.JWT_SECRET)
