@@ -5,7 +5,7 @@ export default {
     Mutation: {
         toggleLike: async (_, args, { request }) => {
             isAuthenticated(request);
-            const { user } = ruquest;
+            const { user } = request;
             const { postId } = args;
             const filterOptions = {
                 AND: [
