@@ -1,0 +1,8 @@
+type UserProfile {
+    user: User!
+    posts: [Post!]!
+}
+
+type Query {
+    me: UserProfile!
+}
