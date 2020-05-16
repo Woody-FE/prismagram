@@ -7,40 +7,40 @@ type User {
   bio: String
   followers: [User!]! @relation(name: "FollowRelation")
   followings: [User!]! @relation(name: "FollowRelation")
-  posts: [Post!]!
-  likes: [Like!]!
-  comments: [Comment!]!
+  posts: [Post!]! @relation(name:"PostsOfUser")
+  likes: [Like!]! @relation(name:"LikesOfUser")
+  comments: [Comment!]! @relation(name:"CommentsOfUser")
   rooms: [Room!]!
   loginSecret: String
 }
 
 type Post {
   id: ID! @id
-  user: User!
+  user: User @relation(name:"PostsOfUser")
   location: String
   caption: String!
-  files: [File!]!
-  likes: [Like!]!
-  comments: [Comment!]!
+  files: [File!]! @relation(name:"FilesOfPost")
+  likes: [Like!]! @relation(name:"LikesOfPost")
+  comments: [Comment!]! @relation(name:"CommentsOfPost")
 }
 
 type Like {
   id: ID! @id
-  user: User!
-  post: Post!
+  user: User @relation(name:"LikesOfUser")
+  post: Post @relation(name:"LikesOfPost")
 }
 
 type Comment {
   id: ID! @id
-  user: User!
+  user: User @relation(name:"CommentsOfUser")
   text: String!
-  post: Post!
+  post: Post @relation(name:"CommentsOfPost")
 }
 
 type File {
   id: ID! @id
   url: String!
-  post: Post!
+  post: Post @relation(name:"FilesOfPost")
 }
 
 type Room {
