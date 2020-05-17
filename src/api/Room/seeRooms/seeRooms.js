@@ -1,3 +1,6 @@
+import { prisma } from "../../../../generated/prisma-client";
+
+
 export default {
     Query: {
         seeRooms: (_, __, { request, isAuthenticated }) => {
