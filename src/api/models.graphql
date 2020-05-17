@@ -1,7 +1,8 @@
 type User {
   id: ID! 
   username: String!
-  email: String! 
+  email: String!
+  avatar: String! 
   firstName: String 
   lastName: String
   fullName: String
